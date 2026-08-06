@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Yash Yennam</title>
+<meta name="description" content="Get in touch with Yash Yennam — Senior Data Scientist and ML Engineer, Mumbai. Remote contract and full-time roles.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero hero-compact">
+  <nav class="hero-nav">
+    <a class="brand" href="index.html">Yash Yennam</a>
+    <div class="links">
+      <a class="nav-link" href="updates/index.html">Updates</a>
+      <a class="nav-link" href="contact.html" aria-current="page">Contact</a>
+    </div>
+  </nav>
+  <p class="hero-kicker">Say hello</p>
+  <h1 class="hero-name">LET'S<br>TALK</h1>
+  <p class="hero-lede">Open to remote contract and full-time roles — or just a good conversation about ML systems, credit risk, and data platforms.</p>
+</header>
+
+<main class="contact-wrap">
+
+  <form id="contact-form">
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required>
+    </div>
+    <div class="field">
+      <label for="email">Your email</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-accent">Send message</button>
+    <p class="form-note">This opens your email app with the message ready to send.</p>
+    <p class="form-status" id="form-status"></p>
+  </form>
+
+  <aside class="contact-aside">
+    <h2 class="block-label">Reach me directly</h2>
+    <div class="rail-contact">
+      <a class="rail-item" href="mailto:contact@yashyennam.com">
+        <span class="rail-label">Email</span>contact@yashyennam.com
+      </a>
+      <a class="rail-item" href="https://linkedin.com/in/yash-yennam" target="_blank" rel="noopener">
+        <span class="rail-label">LinkedIn</span>linkedin.com/in/yash-yennam
+      </a>
+      <a class="rail-item" href="tel:+918369235878">
+        <span class="rail-label">Phone</span>+91 83692 35878
+      </a>
+      <div class="rail-item rail-static">
+        <span class="rail-label">Location</span>Mumbai &middot; UTC+5:30 &middot; remote worldwide
+      </div>
+    </div>
+    <a class="btn btn-accent btn-block" href="assets/Yash-Yennam-Resume.pdf" target="_blank" rel="noopener">Download résumé (PDF)</a>
+  </aside>
+
+</main>
+
+<footer class="site-footer">
+  <span>Mumbai, India &middot; UTC+5:30</span>
+  <span>Remote &mdash; US / Canada / Europe / Australia / NZ / UAE</span>
+</footer>
+
+<script src="contact.js"></script>
+</body>
+</html>
