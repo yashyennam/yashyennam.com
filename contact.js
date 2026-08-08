@@ -1,40 +1,42 @@
-var form = document.getElementById('contact-form');
-var status = document.getElementById('form-status');
-var button = document.getElementById('submit-btn');
+// Note: avoid naming globals `status` or `name` — they collide with built-in
+// window properties (both coerce to strings) and silently break assignments.
+var formEl = document.getElementById('contact-form');
+var statusEl = document.getElementById('form-status');
+var submitBtn = document.getElementById('submit-btn');
 
-function show(message, kind) {
-  status.textContent = message;
-  status.className = 'form-status visible ' + kind;
+function showStatus(message, kind) {
+  statusEl.textContent = message;
+  statusEl.className = 'form-status visible ' + kind;
 }
 
-form.addEventListener('submit', function (e) {
+formEl.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  button.disabled = true;
-  show('Sending…', 'pending');
+  submitBtn.disabled = true;
+  showStatus('Sending…', 'pending');
 
-  fetch(form.action, {
+  fetch(formEl.action, {
     method: 'POST',
-    body: new FormData(form),
+    body: new FormData(formEl),
     headers: { Accept: 'application/json' }
   })
     .then(function (res) {
       if (res.ok) {
-        form.reset();
-        show('Thanks — your message is on its way. I usually reply within a couple of days.', 'ok');
-      } else {
-        return res.json().then(function (data) {
-          var detail = data && data.errors
-            ? data.errors.map(function (x) { return x.message; }).join(', ')
-            : 'Something went wrong.';
-          show(detail + ' You can also email contact@yashyennam.com directly.', 'err');
-        });
+        formEl.reset();
+        showStatus('Thanks — your message is on its way. I usually reply within a couple of days.', 'ok');
+        return;
       }
+      return res.json().then(function (data) {
+        var detail = data && data.errors
+          ? data.errors.map(function (x) { return x.message; }).join(', ')
+          : 'Something went wrong.';
+        showStatus(detail + ' You can also email contact@yashyennam.com directly.', 'err');
+      });
     })
     .catch(function () {
-      show('Network error — please email contact@yashyennam.com directly.', 'err');
+      showStatus('Network error — please email contact@yashyennam.com directly.', 'err');
     })
     .then(function () {
-      button.disabled = false;
+      submitBtn.disabled = false;
     });
 });
