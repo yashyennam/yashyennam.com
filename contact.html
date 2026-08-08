@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Yash Yennam</title>
 <meta name="description" content="Get in touch with Yash Yennam — Senior Data Scientist and ML Engineer, Mumbai. Remote contract and full-time roles.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; connect-src https://formspree.io; form-action https://formspree.io; base-uri 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,7 @@
 
 <main class="contact-wrap">
 
-  <form id="contact-form">
+  <form id="contact-form" action="https://formspree.io/f/xbgrdako" method="POST">
     <div class="field">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" autocomplete="name" required>
@@ -43,9 +43,8 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" required></textarea>
     </div>
-    <button type="submit" class="btn btn-accent">Send message</button>
-    <p class="form-note">This opens your email app with the message ready to send.</p>
-    <p class="form-status" id="form-status"></p>
+    <button type="submit" class="btn btn-accent" id="submit-btn">Send message</button>
+    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
   </form>
 
   <aside class="contact-aside">
